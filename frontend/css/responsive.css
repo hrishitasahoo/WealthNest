@@ -1,0 +1,65 @@
+
+
+@media (max-width: 1080px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .goal-grid { grid-template-columns: 1fr; }
+  .scheme-grid { grid-template-columns: 1fr; }
+  .learn-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .budget-layout { grid-template-columns: 1fr; }
+  .calc-panel.active { grid-template-columns: 1fr; }
+  .profile-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .nav-toggle { display: block; }
+
+  .main-nav.mobile-open {
+    display: flex;
+    position: fixed;
+    top: var(--header-height);
+    left: 0; right: 0;
+    background: var(--color-surface);
+    flex-direction: column;
+    padding: 18px 24px 26px;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    gap: 4px;
+    z-index: 99;
+  }
+  .main-nav.mobile-open a { padding: 10px 0; }
+
+  .hero { padding: 44px 0; }
+
+  .problem-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .app-shell { grid-template-columns: 1fr; }
+  .app-sidebar {
+    display: flex;
+    overflow-x: auto;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .sidebar-nav { display: flex; gap: 6px; }
+  .sidebar-nav a { white-space: nowrap; margin-bottom: 0; }
+  .sidebar-divider { display: none; }
+  .app-main { padding: 22px 18px; }
+}
+
+@media (max-width: 640px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .learn-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-band { padding: 36px 22px; }
+  .auth-card { padding: 28px 22px; }
+  table { font-size: 0.82rem; }
+  th, td { padding: 10px 8px; }
+  .page-head-row { flex-direction: column; align-items: flex-start; }
+  .btn-block-mobile { width: 100%; }
+}

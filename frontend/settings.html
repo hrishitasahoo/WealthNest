@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Settings</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar active" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html" class="active">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div id="welcome-banner" class="alert alert-success" style="display:none;">
+      <span>Welcome to WealthNest! Fill in your financial profile below, or <a href="#" onclick="skipForNow();return false;">skip for now</a> and complete it later.</span>
+    </div>
+
+    <div class="page-head">
+      <h1>Settings</h1>
+      <p>Manage your account and financial profile in one place.</p>
+    </div>
+
+        <section class="card" style="margin-bottom:22px;">
+      <h3>Account Details</h3>
+      <div id="account-error" class="auth-error"></div>
+      <div id="account-success" class="auth-success"></div>
+      <form id="account-form">
+        <div class="form-group">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" disabled>
+          <p class="form-hint">To change your name, please contact support.</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required minlength="3" maxlength="30" placeholder="e.g. ananya_s">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" required>
+          </div>
+        </div>
+        <p class="form-hint" style="margin-top:-8px;">Username: letters, numbers, dots and underscores only, 3–30 characters. You will log in with your email going forward.</p>
+        <button type="submit" class="btn btn-primary">Save Account Details</button>
+      </form>
+    </section>
+
+        <section class="card" style="margin-bottom:22px;">
+      <h3>Change Password</h3>
+      <div id="password-error" class="auth-error"></div>
+      <div id="password-success" class="auth-success"></div>
+      <form id="password-form">
+        <div class="form-group">
+          <label for="currentPassword">Current password</label>
+          <input type="password" id="currentPassword" required autocomplete="current-password">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newPassword">New password</label>
+            <input type="password" id="newPassword" required minlength="8" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm new password</label>
+            <input type="password" id="confirmNewPassword" required minlength="8" autocomplete="new-password">
+          </div>
+        </div>
+        <p class="form-hint" style="margin-top:-8px;">Use at least 8 characters, including letters and numbers.</p>
+        <button type="submit" class="btn btn-primary">Update Password</button>
+      </form>
+    </section>
+
+        <section class="card">
+      <h3>Financial Profile</h3>
+      <p style="font-size:0.9rem;">This information powers your dashboard summary and insights. All fields are optional — you can complete them later.</p>
+      <div id="finprofile-success" class="auth-success"></div>
+      <form id="profile-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="10" max="120">
+          </div>
+          <div class="form-group">
+            <label for="mainFinancialGoal">Main financial goal</label>
+            <input type="text" id="mainFinancialGoal" placeholder="e.g. Build an emergency fund">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="monthlyIncome">Monthly income (₹)</label>
+            <input type="number" id="monthlyIncome" min="0" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="monthlyExpenses">Monthly expenses (₹)</label>
+            <input type="number" id="monthlyExpenses" min="0" step="0.01">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="currentSavings">Current savings (₹)</label>
+            <input type="number" id="currentSavings" min="0" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="existingInvestments">Existing investments (₹)</label>
+            <input type="number" id="existingInvestments" min="0" step="0.01">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="monthlySavingCapacity">Monthly saving capacity (₹)</label>
+          <input type="number" id="monthlySavingCapacity" min="0" step="0.01">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Financial Profile</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

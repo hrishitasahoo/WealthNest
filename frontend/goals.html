@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Goals — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Goals</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html" class="active">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head-row">
+      <div>
+        <h1>Financial Goals</h1>
+        <p>Create and track progress toward what matters to you.</p>
+      </div>
+      <button id="add-goal-btn" class="btn btn-primary">+ Create Goal</button>
+    </div>
+
+    <div id="goals-container">
+      <div class="goal-grid">
+        <div class="skeleton" style="height:200px;"></div>
+        <div class="skeleton" style="height:200px;"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="goal-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="goal-modal-title">Create a Goal</h3>
+      <button class="modal-close" id="goal-modal-close">&times;</button>
+    </div>
+    <form id="goal-form">
+      <div class="form-group">
+        <label for="goalName">Goal name</label>
+        <input type="text" id="goalName" required placeholder="e.g. Emergency Fund">
+      </div>
+      <div class="form-group">
+        <label for="goalDescription">Description (optional)</label>
+        <textarea id="goalDescription" placeholder="What is this goal for?"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="targetAmount">Target amount (₹)</label>
+          <input type="number" id="targetAmount" min="1" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="timeframeMonths">Time frame (months)</label>
+          <input type="number" id="timeframeMonths" min="1" step="1" required placeholder="e.g. 12">
+        </div>
+      </div>
+      <p class="form-hint" id="goal-preview" style="margin-top:-8px;"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="goal-modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Goal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/goals.js"></script>
+</body>
+</html>

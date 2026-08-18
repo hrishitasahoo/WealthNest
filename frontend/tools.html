@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Calculators — WealthNest</title>
+<meta name="description" content="Free SIP, FD, compound interest and savings goal calculators to plan your finances.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Financial Tools</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html" class="active">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+  <div class="page-head" style="max-width:640px;margin-bottom:36px;">
+    <h1>Financial Calculators</h1>
+    <p>Plan ahead with simple, transparent calculations.</p>
+  </div>
+
+  <div class="calc-tabs">
+    <button class="calc-tab active" data-panel="panel-sip">SIP Calculator</button>
+    <button class="calc-tab" data-panel="panel-fd">FD Calculator</button>
+    <button class="calc-tab" data-panel="panel-ci">Compound Interest</button>
+    <button class="calc-tab" data-panel="panel-sg">Savings Goal</button>
+  </div>
+
+    <div class="calc-panel active" id="panel-sip">
+    <div class="card">
+      <h3>SIP Calculator</h3>
+      <p style="font-size:0.9rem;">Estimate what a monthly Systematic Investment Plan could grow to.</p>
+      <form id="sip-form">
+        <div class="form-group">
+          <label for="sipMonthly">Monthly investment (₹)</label>
+          <input type="number" id="sipMonthly" min="1" step="0.01" required value="2000">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sipReturn">Expected annual return (%)</label>
+            <input type="number" id="sipReturn" min="0" step="0.1" required value="12">
+          </div>
+          <div class="form-group">
+            <label for="sipYears">Investment duration (years)</label>
+            <input type="number" id="sipYears" min="1" step="1" required value="10">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+      </form>
+    </div>
+    <div class="card" id="sip-output" style="display:none;">
+      <h3>Results</h3>
+      <div class="calc-result-list" id="sip-results"></div>
+      <div id="sip-chart"></div>
+      <p class="calc-disclaimer" id="sip-disclaimer" style="margin-top:16px;"></p>
+    </div>
+  </div>
+
+    <div class="calc-panel" id="panel-fd">
+    <div class="card">
+      <h3>FD Calculator</h3>
+      <p style="font-size:0.9rem;">Estimate the maturity value of a Fixed Deposit.</p>
+      <form id="fd-form">
+        <div class="form-group">
+          <label for="fdPrincipal">Principal amount (₹)</label>
+          <input type="number" id="fdPrincipal" min="1" step="0.01" required value="50000">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fdRate">Interest rate (% per year)</label>
+            <input type="number" id="fdRate" min="0" step="0.1" required value="7">
+          </div>
+          <div class="form-group">
+            <label for="fdYears">Tenure (years)</label>
+            <input type="number" id="fdYears" min="0.25" step="0.25" required value="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fdCompounding">Compounding frequency</label>
+          <select id="fdCompounding">
+            <option value="1">Yearly</option>
+            <option value="2">Half-yearly</option>
+            <option value="4" selected>Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+      </form>
+    </div>
+    <div class="card" id="fd-output" style="display:none;">
+      <h3>Results</h3>
+      <div class="calc-result-list" id="fd-results"></div>
+      <p class="calc-disclaimer">Enter the interest rate offered by your bank — this is not fetched automatically, since rates vary and change over time.</p>
+    </div>
+  </div>
+
+    <div class="calc-panel" id="panel-ci">
+    <div class="card">
+      <h3>Compound Interest Calculator</h3>
+      <p style="font-size:0.9rem;">See how your money can grow with the power of compounding.</p>
+      <form id="ci-form">
+        <div class="form-group">
+          <label for="ciPrincipal">Principal (₹)</label>
+          <input type="number" id="ciPrincipal" min="1" step="0.01" required value="10000">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ciRate">Annual interest rate (%)</label>
+            <input type="number" id="ciRate" min="0" step="0.1" required value="8">
+          </div>
+          <div class="form-group">
+            <label for="ciYears">Time period (years)</label>
+            <input type="number" id="ciYears" min="1" step="1" required value="5">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ciCompounding">Compounding frequency</label>
+          <select id="ciCompounding">
+            <option value="1" selected>Yearly</option>
+            <option value="2">Half-yearly</option>
+            <option value="4">Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+      </form>
+    </div>
+    <div class="card" id="ci-output" style="display:none;">
+      <h3>Results</h3>
+      <div class="calc-result-list" id="ci-results"></div>
+      <div id="ci-chart"></div>
+    </div>
+  </div>
+
+    <div class="calc-panel" id="panel-sg">
+    <div class="card">
+      <h3>Savings Goal Calculator</h3>
+      <p style="font-size:0.9rem;">Find out how much you need to save each month to reach your goal.</p>
+      <form id="sg-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sgTarget">Target amount (₹)</label>
+            <input type="number" id="sgTarget" min="1" step="0.01" required value="50000">
+          </div>
+          <div class="form-group">
+            <label for="sgCurrent">Current savings (₹)</label>
+            <input type="number" id="sgCurrent" min="0" step="0.01" value="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sgDate">Target date</label>
+            <input type="date" id="sgDate" required>
+          </div>
+          <div class="form-group">
+            <label for="sgContribution">Current monthly contribution (₹)</label>
+            <input type="number" id="sgContribution" min="0" step="0.01" value="0">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+      </form>
+    </div>
+    <div class="card" id="sg-output" style="display:none;">
+      <h3>Results</h3>
+      <div class="calc-result-list" id="sg-results"></div>
+      <div id="sg-status"></div>
+    </div>
+  </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WealthNest. All rights reserved.</span>
+      <span>Calculator results are estimates and do not guarantee actual returns.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+</body>
+</html>

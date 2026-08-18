@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Expenses</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html" class="active">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head-row">
+      <div>
+        <h1>Expense Tracker</h1>
+        <p>Record and understand where your money goes each month.</p>
+      </div>
+      <button id="add-expense-btn" class="btn btn-primary">Add Expense</button>
+    </div>
+
+    <section class="summary-grid" id="expense-summary-grid">
+      <div class="summary-card">
+        <div class="summary-label">Total Spent This Month</div>
+        <div class="summary-value" id="stat-total-spent">₹0</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Largest Category</div>
+        <div class="summary-value" id="stat-largest-category">—</div>
+        <div class="summary-sub" id="stat-largest-amount"></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Daily Average</div>
+        <div class="summary-value" id="stat-daily-avg">₹0</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Remaining Budget</div>
+        <div class="summary-value" id="stat-remaining-budget">—</div>
+        <div class="summary-sub" id="stat-remaining-note"></div>
+      </div>
+    </section>
+
+    <div class="scheme-toolbar">
+      <input type="text" id="expense-search" placeholder="Search expenses...">
+      <input type="month" id="expense-month-filter">
+    </div>
+
+    <div id="category-pills" class="category-pill-list"></div>
+
+    <div class="budget-layout">
+      <div id="expense-table-wrap" class="card">
+        <div class="skeleton" style="height:220px;"></div>
+      </div>
+      <div class="card">
+        <h3>Category Breakdown</h3>
+        <div id="category-breakdown">
+          <div class="skeleton" style="height:120px;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="expense-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="expense-modal-title">Add Expense</h3>
+      <button class="modal-close" id="expense-modal-close">&times;</button>
+    </div>
+    <form id="expense-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expCategory">Category</label>
+          <select id="expCategory" required>
+            <option>Food</option>
+            <option>Groceries</option>
+            <option>Rent</option>
+            <option>Utilities</option>
+            <option>Transport</option>
+            <option>Education</option>
+            <option>Healthcare</option>
+            <option>Shopping</option>
+            <option>Entertainment</option>
+            <option>Bills</option>
+            <option>Family</option>
+            <option>Travel</option>
+            <option>Personal</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="expPaymentMethod">Payment method</label>
+          <select id="expPaymentMethod">
+            <option value="">Not specified</option>
+            <option>Cash</option>
+            <option>UPI</option>
+            <option>Debit Card</option>
+            <option>Credit Card</option>
+            <option>Net Banking</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expAmount">Amount (₹)</label>
+          <input type="number" id="expAmount" min="0.01" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="expDate">Date</label>
+          <input type="date" id="expDate" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="expDescription">Description (optional)</label>
+        <input type="text" id="expDescription" placeholder="e.g. Groceries for the week">
+      </div>
+      <div class="form-group">
+        <label for="expNote">Note (optional)</label>
+        <textarea id="expNote" placeholder="Any additional detail you want to remember"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="expense-modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Expense</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/expenses.js"></script>
+</body>
+</html>

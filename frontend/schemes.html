@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Schemes — WealthNest</title>
+<meta name="description" content="Discover Indian government financial schemes for savings, pension, education, insurance and more, with verified sources.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Government Schemes</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html" class="active">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+  <div class="page-head" style="max-width:680px;margin-bottom:36px;">
+    <h1>Government Schemes</h1>
+    <p>Explore official Indian government financial schemes, explained in simple language with verified sources.</p>
+  </div>
+
+  <div class="scheme-disclaimer">
+    Information is provided for educational purposes. Please verify eligibility, benefits and current rules on the official government website before applying.
+  </div>
+
+  <div class="scheme-toolbar">
+    <select id="scheme-category">
+      <option value="">All Categories</option>
+      <option>Savings</option>
+      <option>Pension</option>
+      <option>Education</option>
+      <option>Insurance</option>
+      <option>Students</option>
+      <option>Women</option>
+      <option>Farmers</option>
+      <option>Small Businesses</option>
+    </select>
+  </div>
+
+  <div id="scheme-grid" class="scheme-grid">
+    <div class="skeleton" style="height:280px;"></div>
+    <div class="skeleton" style="height:280px;"></div>
+  </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WealthNest. All rights reserved.</span>
+      <span>Scheme information is sourced from official government portals — always verify before applying.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/schemes.js"></script>
+</body>
+</html>

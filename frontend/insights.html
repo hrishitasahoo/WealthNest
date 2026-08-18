@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Insights</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head">
+      <h1>Insights</h1>
+      <p>Observations based on your own financial data — most important first.</p>
+    </div>
+
+    <div id="insights-container">
+      <div class="skeleton" style="height:60px;margin-bottom:12px;"></div>
+      <div class="skeleton" style="height:60px;margin-bottom:12px;"></div>
+      <div class="skeleton" style="height:60px;"></div>
+    </div>
+
+    <p class="form-hint" style="margin-top:20px;">These insights are generated using rule-based calculations on your own recorded data. They are not personalized professional financial advice.</p>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/insights.js"></script>
+</body>
+</html>

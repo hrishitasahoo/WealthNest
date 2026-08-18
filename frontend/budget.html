@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Planner — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Budget</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html" class="active">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head">
+      <h1>Budget Planner</h1>
+      <p>A simple monthly split based on the standard 50/30/20 rule.</p>
+    </div>
+
+    <div class="planner-layout">
+      <div class="card">
+        <h3>Your Income</h3>
+        <p style="font-size:0.88rem;">Just enter your monthly income. We'll use the standard 50/30/20 rule to recommend a split between Needs, Wants and Savings.</p>
+        <form id="plan-form">
+          <div class="form-group">
+            <label for="planIncome">Monthly income (₹)</label>
+            <input type="number" id="planIncome" min="1" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="planExpenses">Current monthly expenses (₹) — optional</label>
+            <input type="number" id="planExpenses" min="0" step="0.01" placeholder="Used only to compare against the recommendation">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="card" id="planner-output" style="display:none;">
+          <h3>Recommended Breakdown</h3>
+          <div class="donut-wrap">
+            <div class="donut" id="budget-donut">
+              <div class="donut-center">
+                <div class="amount" id="donut-income">₹0</div>
+                <div class="label">Monthly Income</div>
+              </div>
+            </div>
+            <div class="donut-legend" id="donut-legend"></div>
+          </div>
+
+          <div class="calc-result-list" style="margin-top:20px;">
+            <div class="calc-result-row highlight">
+              <span class="label">Recommended Total Expenses (Needs + Wants)</span>
+              <span class="value" id="recommended-total">₹0</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="label">Recommended Monthly Savings</span>
+              <span class="value" id="recommended-savings">₹0</span>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer" id="plan-comparison" style="display:none;margin-top:14px;"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/budgetPlan.js"></script>
+</body>
+</html>

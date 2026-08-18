@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Dashboard</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head">
+      <h1>Hello, <span id="greeting-name">there</span></h1>
+      <p>Here's how your finances are doing right now.</p>
+    </div>
+
+    <div id="profile-nudge" class="alert alert-info" style="display:none;">
+      <span>Your financial profile is incomplete. <a href="settings.html">Complete it</a> to get more accurate insights.</span>
+    </div>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-label">Monthly Income</div>
+        <div class="summary-value" id="stat-income">₹0</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Monthly Expenses</div>
+        <div class="summary-value" id="stat-expenses">₹0</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Monthly Savings</div>
+        <div class="summary-value" id="stat-savings">₹0</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Available This Month</div>
+        <div class="summary-value" id="stat-available">₹0</div>
+      </div>
+    </section>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-title-row">
+          <h3>Expense Overview</h3>
+          <a href="expenses.html" class="btn btn-secondary btn-sm">View Expenses</a>
+        </div>
+        <p style="font-size:0.85rem;">Spent this month: <strong id="expense-total">₹0</strong></p>
+        <div id="budget-progress-wrap"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title-row">
+          <h3>Savings Overview</h3>
+          <div class="chart-tabs">
+            <button data-range="weekly">Weekly</button>
+            <button data-range="monthly" class="active">Monthly</button>
+            <button data-range="yearly">Yearly</button>
+          </div>
+        </div>
+        <div class="chart-wrap" id="savings-chart"></div>
+      </div>
+    </div>
+
+    <div class="card-title-row" style="margin-top:28px;">
+      <h3>Your Goals</h3>
+      <a href="goals.html" class="btn btn-secondary btn-sm">View All Goals</a>
+    </div>
+    <div id="goals-preview" class="goal-grid">
+      <div class="skeleton" style="height:180px;"></div>
+      <div class="skeleton" style="height:180px;"></div>
+    </div>
+
+    <div class="card-title-row" style="margin-top:28px;">
+      <h3>Insights</h3>
+      <a href="insights.html" class="btn btn-secondary btn-sm">View All Insights</a>
+    </div>
+    <div class="card">
+      <div class="insight-list" id="insights-list">
+        <div class="skeleton" style="height:60px;"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

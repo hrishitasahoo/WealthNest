@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn — WealthNest</title>
+<meta name="description" content="Beginner-friendly explanations of FD, RD, SIP, PPF, NPS, mutual funds, inflation, credit scores and more.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="wn-auth-pending">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <nav class="main-nav" id="learn-nav-slot">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="learn.html" class="active">Learn</a>
+    </nav>
+    <div class="header-actions" id="learn-actions-slot">
+      <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" id="learn-nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="app-shell guest-mode" id="learn-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html" class="active">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head" style="max-width:640px;">
+      <h1>Learn About Money</h1>
+      <p>Simple, jargon-free explanations of financial terms and products — with real Indian Rupee examples.</p>
+    </div>
+
+    <div id="learn-grid" class="learn-grid">
+      <div class="skeleton" style="height:160px;"></div>
+      <div class="skeleton" style="height:160px;"></div>
+      <div class="skeleton" style="height:160px;"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="learn-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="learn-modal-title">Topic</h3>
+      <button class="modal-close" id="learn-modal-close">&times;</button>
+    </div>
+    <div id="learn-modal-body"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WealthNest. All rights reserved.</span>
+      <span>Educational content — not personalized financial advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/learn.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Tracker — WealthNest</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">W</span>WealthNest</a>
+    <div class="header-section-label">Savings</div>
+    <div class="header-actions">
+      <div class="user-menu">
+        <a href="settings.html" class="user-avatar" title="Account settings">U</a>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="budget.html">Budget</a>
+      <a href="goals.html">Goals</a>
+      <a href="savings.html" class="active">Savings</a>
+      <div class="sidebar-divider"></div>
+      <a href="tools.html">Financial Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="schemes.html">Government Schemes</a>
+      <div class="sidebar-divider"></div>
+      <a href="insights.html">Insights</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <div class="page-head-row">
+      <div>
+        <h1>Savings Tracker</h1>
+        <p>Total savings recorded: <strong id="total-savings">₹0</strong></p>
+      </div>
+      <button id="add-savings-btn" class="btn btn-primary">+ Add Savings Entry</button>
+    </div>
+
+    <div id="savings-table-wrap" class="card">
+      <div class="skeleton" style="height:220px;"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="savings-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="savings-modal-title">Add Savings Entry</h3>
+      <button class="modal-close" id="savings-modal-close">&times;</button>
+    </div>
+    <form id="savings-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="savAmount">Amount (₹)</label>
+          <input type="number" id="savAmount" min="0.01" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="savDate">Date</label>
+          <input type="date" id="savDate" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="savGoal">Associated goal (optional)</label>
+        <select id="savGoal">
+          <option value="">Not linked to a goal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="savDescription">Description (optional)</label>
+        <input type="text" id="savDescription" placeholder="e.g. Monthly savings deposit">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="savings-modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Entry</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/savings.js"></script>
+</body>
+</html>
