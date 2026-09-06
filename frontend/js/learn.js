@@ -21,7 +21,7 @@ async function adaptLearnLayout() {
     document.getElementById('learn-actions-slot').innerHTML = `
       <div class="user-menu">
         <a href="settings.html" class="user-avatar" title="Account settings">${WN.escapeHTML(user.full_name.charAt(0).toUpperCase())}</a>
-        <a href="#" id="learn-logout" class="btn btn-secondary btn-sm">Log Out</a>
+        <a href="#" id="learn-logout" class="btn btn-secondary">Log Out</a>
       </div>
     `;
     document.getElementById('learn-logout').addEventListener('click', async (e) => {
@@ -33,6 +33,8 @@ async function adaptLearnLayout() {
 
   } finally {
     document.body.classList.remove('wn-auth-pending');
+    if (window.wnInjectLanguageSwitcher) window.wnInjectLanguageSwitcher();
+    if (window.wnApplyTranslations && window.wnGetLang) window.wnApplyTranslations(window.wnGetLang());
   }
 }
 

@@ -17,7 +17,7 @@
     <div class="header-actions">
       <div class="user-menu">
         <a href="settings.html" class="user-avatar active" title="Account settings">U</a>
-        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+        <a href="#" data-logout class="btn btn-secondary">Log Out</a>
       </div>
     </div>
   </div>
@@ -142,7 +142,53 @@
         <button type="submit" class="btn btn-primary">Save Financial Profile</button>
       </form>
     </section>
+
+    <div style="height:1px;background:var(--color-border);margin:36px 0 28px;"></div>
+
+    <section class="card" style="border-color:var(--color-danger);background:var(--color-danger-light);">
+      <h3 style="color:var(--color-danger);">Danger Zone</h3>
+      <p style="font-size:0.9rem;">These actions affect your account directly. Please proceed carefully.</p>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid rgba(179,69,61,0.2);">
+        <div>
+          <strong>Sign Out</strong>
+          <p style="margin:2px 0 0;font-size:0.85rem;">End your current session on this device.</p>
+        </div>
+        <a href="#" data-logout class="btn btn-secondary btn-sm">Sign Out</a>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid rgba(179,69,61,0.2);">
+        <div>
+          <strong>Delete Account</strong>
+          <p style="margin:2px 0 0;font-size:0.85rem;">Permanently delete your account and all associated data. This cannot be undone.</p>
+        </div>
+        <button type="button" class="btn btn-danger btn-sm" id="open-delete-modal">Delete Account</button>
+      </div>
+    </section>
   </main>
+</div>
+
+<div class="modal-overlay" id="delete-modal-overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 style="color:var(--color-danger);">Delete Your Account</h3>
+      <button class="modal-close" id="delete-modal-close">&times;</button>
+    </div>
+    <div class="alert alert-danger">
+      <span>This will permanently delete your account, including your financial profile, goals, expenses, savings history and budget plan. This action cannot be undone.</span>
+    </div>
+    <div id="delete-error" class="auth-error"></div>
+    <form id="delete-form">
+      <div class="form-group">
+        <label for="deletePassword">Enter your password to confirm</label>
+        <input type="password" id="deletePassword" required autocomplete="current-password">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="delete-modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-danger">Permanently Delete My Account</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="js/api.js"></script>

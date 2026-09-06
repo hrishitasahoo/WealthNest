@@ -68,4 +68,74 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const forgotForm = document.getElementById('forgot-password-form');
+  if (forgotForm) {
+    const errorBox = document.getElementById('forgot-error');
+    const successBox = document.getElementById('forgot-success');
+    forgotForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError(errorBox);
+      successBox.classList.remove('visible');
+
+      const submitBtn = forgotForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const payload = { email: document.getElementById('email').value.trim() };
+
+      try {
+        const res = await WN.api.post('/auth/forgot-password', payload, { silent: true });
+        successBox.textContent = res.message || 'If an account with that email exists, a password reset link has been sent.';
+        successBox.classList.add('visible');
+        forgotForm.reset();
+      } catch (err) {
+        showError(errorBox, err.message || 'We could not process that request. Please try again.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Reset Link';
+      }
+    });
+  }
+
+  const resetForm = document.getElementById('reset-password-form');
+  if (resetForm) {
+    const errorBox = document.getElementById('reset-error');
+    const successBox = document.getElementById('reset-success');
+    const token = new URLSearchParams(window.location.search).get('token');
+
+    resetForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError(errorBox);
+      successBox.classList.remove('visible');
+
+      if (!token) {
+        showError(errorBox, 'This reset link is invalid or has expired. Please request a new one.');
+        return;
+      }
+
+      const submitBtn = resetForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Resetting…';
+
+      const payload = {
+        token,
+        newPassword: document.getElementById('newPassword').value,
+        confirmNewPassword: document.getElementById('confirmNewPassword').value
+      };
+
+      try {
+        const res = await WN.api.post('/auth/reset-password', payload, { silent: true });
+        successBox.textContent = res.message || 'Your password has been reset. You can now log in.';
+        successBox.classList.add('visible');
+        resetForm.reset();
+        setTimeout(() => { window.location.href = '/login.html'; }, 2000);
+      } catch (err) {
+        showError(errorBox, err.message || 'We could not reset your password. Please request a new link.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Reset Password';
+      }
+    });
+  }
 });

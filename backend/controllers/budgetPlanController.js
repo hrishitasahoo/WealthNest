@@ -9,7 +9,7 @@ const getPlan = asyncHandler(async (req, res) => {
 });
 
 const savePlan = asyncHandler(async (req, res) => {
-  const { monthlyIncome, recurringExpenses } = req.body;
+  const { monthlyIncome } = req.body;
   const income = toNumberOrNull(monthlyIncome);
 
   if (income === null || income <= 0) {
@@ -18,7 +18,7 @@ const savePlan = asyncHandler(async (req, res) => {
 
   const plan = await budgetPlanService.savePlan(req.userId, {
     monthlyIncome: income,
-    recurringExpenses: toNumberOrNull(recurringExpenses)
+    recurringExpenses: null
   });
 
   res.status(200).json({

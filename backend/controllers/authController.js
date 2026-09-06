@@ -43,4 +43,17 @@ const me = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, data: { user } });
 });
 
-module.exports = { register, login, logout, me };
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  const baseUrl = process.env.CLIENT_ORIGIN || `${req.protocol}://${req.get('host')}`;
+  const { message } = await authService.requestPasswordReset(email, baseUrl);
+  res.status(200).json({ success: true, message });
+});
+
+const resetPassword = asyncHandler(async (req, res) => {
+  const { token, newPassword, confirmNewPassword } = req.body;
+  const { message } = await authService.resetPassword({ token, newPassword, confirmNewPassword });
+  res.status(200).json({ success: true, message });
+});
+
+module.exports = { register, login, logout, me, forgotPassword, resetPassword };

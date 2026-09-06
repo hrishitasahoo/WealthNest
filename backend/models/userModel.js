@@ -55,7 +55,36 @@ async function updatePasswordHash(id, passwordHash) {
   await pool.query(`UPDATE users SET password_hash = ? WHERE id = ?`, [passwordHash, id]);
 }
 
+async function deleteUser(id) {
+  const [result] = await pool.query(`DELETE FROM users WHERE id = ?`, [id]);
+  return result.affectedRows > 0;
+}
+
+async function setResetToken(userId, tokenHash, expiresAt) {
+  await pool.query(
+    `UPDATE users SET reset_token_hash = ?, reset_token_expires = ? WHERE id = ?`,
+    [tokenHash, expiresAt, userId]
+  );
+}
+
+async function findUserByResetTokenHash(tokenHash) {
+  const [rows] = await pool.query(
+    `SELECT id, email, reset_token_expires FROM users
+     WHERE reset_token_hash = ? LIMIT 1`,
+    [tokenHash]
+  );
+  return rows[0] || null;
+}
+
+async function clearResetToken(userId) {
+  await pool.query(
+    `UPDATE users SET reset_token_hash = NULL, reset_token_expires = NULL WHERE id = ?`,
+    [userId]
+  );
+}
+
 module.exports = {
   createUser, findUserByEmail, findUserByUsername, findUserById,
-  updateAccount, findUserByIdWithHash, updatePasswordHash
+  updateAccount, findUserByIdWithHash, updatePasswordHash, deleteUser,
+  setResetToken, findUserByResetTokenHash, clearResetToken
 };

@@ -22,4 +22,15 @@ const changePassword = asyncHandler(async (req, res) => {
   });
 });
 
-module.exports = { updateAccount, changePassword };
+const deleteAccount = asyncHandler(async (req, res) => {
+  const { password } = req.body;
+  await accountService.deleteAccount(req.userId, password);
+
+  res.clearCookie('wn_token');
+  res.status(200).json({
+    success: true,
+    message: 'Your account has been permanently deleted.'
+  });
+});
+
+module.exports = { updateAccount, changePassword, deleteAccount };

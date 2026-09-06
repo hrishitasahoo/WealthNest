@@ -17,7 +17,7 @@
     <div class="header-actions">
       <div class="user-menu">
         <a href="settings.html" class="user-avatar" title="Account settings">U</a>
-        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+        <a href="#" data-logout class="btn btn-secondary">Log Out</a>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
   <main class="app-main">
     <div class="page-head">
       <h1>Budget Planner</h1>
-      <p>A simple monthly split based on the standard 50/30/20 rule.</p>
+      <p>A recommended split based on your income, compared against what you've actually spent.</p>
     </div>
 
     <div class="planner-layout">
@@ -56,10 +56,7 @@
             <label for="planIncome">Monthly income (₹)</label>
             <input type="number" id="planIncome" min="1" step="0.01" required>
           </div>
-          <div class="form-group">
-            <label for="planExpenses">Current monthly expenses (₹) — optional</label>
-            <input type="number" id="planExpenses" min="0" step="0.01" placeholder="Used only to compare against the recommendation">
-          </div>
+          <p class="form-hint" style="margin-top:-8px;">We'll compare this against what you've already recorded in your Expense Tracker this month — no need to enter expenses again here.</p>
           <button type="submit" class="btn btn-primary btn-block">Calculate</button>
         </form>
       </div>
@@ -87,8 +84,12 @@
               <span class="value" id="recommended-savings">₹0</span>
             </div>
           </div>
+        </div>
 
-          <p class="calc-disclaimer" id="plan-comparison" style="display:none;margin-top:14px;"></p>
+        <div class="card" id="planner-comparison" style="display:none;margin-top:20px;">
+          <h3>This Month, So Far</h3>
+          <p style="font-size:0.85rem;">Based on what you've recorded in Expense Tracker this month.</p>
+          <div id="comparison-cards"></div>
         </div>
       </div>
     </div>

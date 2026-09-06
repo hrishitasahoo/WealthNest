@@ -6,5 +6,6 @@ const { requireAuth } = require('../middleware/auth');
 router.use(requireAuth);
 router.put('/', accountController.updateAccount);
 router.put('/password', accountController.changePassword);
+router.delete('/', accountController.deleteAccount);
 
 module.exports = router;

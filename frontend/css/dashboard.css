@@ -25,7 +25,7 @@
 .sidebar-nav .nav-icon { width: 18px; height: 18px; flex-shrink: 0; }
 .sidebar-divider { height: 1px; background: var(--color-border); margin: 16px 4px; }
 
-.app-main { padding: 34px; max-width: 1180px; }
+.app-main { padding: 34px; max-width: 1180px; min-width: 0; }
 
 .page-head { margin-bottom: 28px; }
 .page-head h1 { font-size: 1.7rem; margin-bottom: 4px; }
@@ -59,6 +59,7 @@
   grid-template-columns: 1.4fr 1fr;
   gap: 22px;
 }
+.dashboard-grid > * { min-width: 0; }
 
 .chart-tabs { display: flex; gap: 6px; background: var(--color-surface-alt); padding: 4px; border-radius: 999px; }
 .chart-tabs button {
@@ -86,6 +87,7 @@
 .insight-disclaimer { font-size: 0.75rem; color: var(--color-text-soft); margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-border); }
 
 .goal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.goal-grid > * { min-width: 0; }
 .goal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px; }
 .goal-card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
 .goal-amounts { font-family: var(--font-display); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 10px; }
@@ -97,6 +99,7 @@
 .goal-actions { display: flex; gap: 8px; }
 
 .budget-layout { display: grid; grid-template-columns: 1fr 320px; gap: 22px; }
+.budget-layout > * { min-width: 0; }
 .category-pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .category-pill {
   border: 1px solid var(--color-border); background: var(--color-surface);
@@ -117,6 +120,7 @@
 }
 .calc-tab.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
 .calc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.calc-layout > * { min-width: 0; }
 .calc-panel { display: none; }
 .calc-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .calc-result-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
@@ -127,6 +131,7 @@
 .calc-disclaimer { font-size: 0.78rem; color: var(--color-text-soft); background: var(--color-surface-alt); padding: 12px 14px; border-radius: var(--radius-sm); }
 
 .learn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.learn-grid > * { min-width: 0; }
 .learn-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px; cursor: pointer; transition: box-shadow 0.15s, transform 0.15s; }
 .learn-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .learn-card .badge { margin-bottom: 12px; }
@@ -134,6 +139,7 @@
 .scheme-toolbar { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
 .scheme-toolbar input[type="text"] { max-width: 320px; }
 .scheme-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.scheme-grid > * { min-width: 0; }
 .scheme-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; }
 .scheme-card h3 { margin-bottom: 8px; }
 .scheme-field { margin-bottom: 12px; }
@@ -142,6 +148,7 @@
 .scheme-footer { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--color-text-soft); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-border); }
 
 .profile-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.profile-layout > * { min-width: 0; }
 
 .planner-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 26px; align-items: start; }
 .donut-wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; }
@@ -174,6 +181,7 @@
 .allocation-card.savings { border-left-color: var(--color-accent); }
 
 .settings-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.settings-layout > * { min-width: 0; }
 
 .insight-row {
   display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;

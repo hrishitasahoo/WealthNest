@@ -17,7 +17,49 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('account-form').addEventListener('submit', handleAccountSubmit);
   document.getElementById('password-form').addEventListener('submit', handlePasswordSubmit);
   document.getElementById('profile-form').addEventListener('submit', handleProfileSubmit);
+
+  document.getElementById('open-delete-modal').addEventListener('click', () => {
+    const confirmed = confirm('This will permanently delete your account and all your data — goals, expenses, savings history and budget plan. This action cannot be undone. Do you want to continue?');
+    if (confirmed) openDeleteModal();
+  });
+  document.getElementById('delete-modal-close').addEventListener('click', closeDeleteModal);
+  document.getElementById('delete-modal-cancel').addEventListener('click', closeDeleteModal);
+  document.getElementById('delete-modal-overlay').addEventListener('click', (e) => {
+    if (e.target.id === 'delete-modal-overlay') closeDeleteModal();
+  });
+  document.getElementById('delete-form').addEventListener('submit', handleDeleteSubmit);
 });
+
+function openDeleteModal() {
+  document.getElementById('delete-form').reset();
+  hideMessage(document.getElementById('delete-error'));
+  document.getElementById('delete-modal-overlay').classList.add('open');
+}
+
+function closeDeleteModal() {
+  document.getElementById('delete-modal-overlay').classList.remove('open');
+}
+
+async function handleDeleteSubmit(e) {
+  e.preventDefault();
+  const errorEl = document.getElementById('delete-error');
+  hideMessage(errorEl);
+
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Deleting…';
+
+  const payload = { password: document.getElementById('deletePassword').value };
+
+  try {
+    await WN.api.del('/account', payload, { silent: true });
+    window.location.href = '/index.html';
+  } catch (err) {
+    showMessage(errorEl, err.message || 'We could not delete your account. Please try again.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Permanently Delete My Account';
+  }
+}
 
 function showMessage(el, message) {
   el.textContent = message;

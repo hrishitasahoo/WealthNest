@@ -18,7 +18,7 @@
     <div class="header-actions">
       <div class="user-menu">
         <a href="settings.html" class="user-avatar" title="Account settings">U</a>
-        <a href="#" data-logout class="btn btn-secondary btn-sm">Log Out</a>
+        <a href="#" data-logout class="btn btn-secondary">Log Out</a>
       </div>
     </div>
   </div>
@@ -46,6 +46,28 @@
   <div class="page-head" style="max-width:640px;margin-bottom:36px;">
     <h1>Financial Calculators</h1>
     <p>Plan ahead with simple, transparent calculations.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:28px;">
+    <h3 style="margin-bottom:14px;">Good to Know</h3>
+    <div class="scheme-grid" style="grid-template-columns:repeat(2,1fr);gap:14px;">
+      <div class="scheme-field">
+        <div class="scheme-field-label">Rule of 72</div>
+        <div class="scheme-field-value">Roughly how long money takes to double: divide 72 by the annual return rate. At 8% return, money doubles in about 9 years.</div>
+      </div>
+      <div class="scheme-field">
+        <div class="scheme-field-label">Inflation erodes value</div>
+        <div class="scheme-field-value">Cash sitting idle loses purchasing power every year. At 6% inflation, ₹100 today is worth about ₹56 in 10 years.</div>
+      </div>
+      <div class="scheme-field">
+        <div class="scheme-field-label">Emergency fund first</div>
+        <div class="scheme-field-value">Most planners suggest covering 3–6 months of expenses before investing aggressively, so a setback doesn't force you to sell investments early.</div>
+      </div>
+      <div class="scheme-field">
+        <div class="scheme-field-label">Start date matters more than amount</div>
+        <div class="scheme-field-value">Because of compounding, investing a smaller amount for longer often beats investing a larger amount for a shorter period.</div>
+      </div>
+    </div>
   </div>
 
   <div class="calc-tabs">
@@ -82,6 +104,11 @@
       <div class="calc-result-list" id="sip-results"></div>
       <div id="sip-chart"></div>
       <p class="calc-disclaimer" id="sip-disclaimer" style="margin-top:16px;"></p>
+    </div>
+    <div class="card" style="grid-column:1/-1;">
+      <h3>About SIP</h3>
+      <p style="font-size:0.9rem;">A Systematic Investment Plan (SIP) means investing a fixed amount regularly — usually monthly — into a mutual fund, instead of putting in a lump sum at once. Over time, this can average out the ups and downs of the market rather than betting everything on one entry point.</p>
+      <p style="font-size:0.9rem;"><strong>Good to know:</strong> Returns from mutual funds are market-linked, not guaranteed. Starting early — even with a small amount — usually matters more than starting big later, because of how compounding works over a longer period.</p>
     </div>
   </div>
 
@@ -121,6 +148,11 @@
       <div class="calc-result-list" id="fd-results"></div>
       <p class="calc-disclaimer">Enter the interest rate offered by your bank — this is not fetched automatically, since rates vary and change over time.</p>
     </div>
+    <div class="card" style="grid-column:1/-1;">
+      <h3>About Fixed Deposits</h3>
+      <p style="font-size:0.9rem;">A Fixed Deposit (FD) is a lump sum you deposit with a bank for a set period at a fixed interest rate, agreed upfront. It's one of the lowest-risk ways to grow money in India, which is also why the returns are generally modest compared to market-linked options.</p>
+      <p style="font-size:0.9rem;"><strong>Good to know:</strong> Breaking an FD before it matures usually costs you a penalty on the interest earned. Interest from an FD is also taxable as per your income slab — it isn't tax-free.</p>
+    </div>
   </div>
 
     <div class="calc-panel" id="panel-ci">
@@ -159,6 +191,11 @@
       <div class="calc-result-list" id="ci-results"></div>
       <div id="ci-chart"></div>
     </div>
+    <div class="card" style="grid-column:1/-1;">
+      <h3>About Compound Interest</h3>
+      <p style="font-size:0.9rem;">Compound interest is calculated on both your original amount and the interest that's already been added to it — so your money grows faster the longer it stays invested, compared to simple interest which only ever grows on the original amount.</p>
+      <p style="font-size:0.9rem;"><strong>Good to know:</strong> Compounding frequency matters — monthly compounding grows your money slightly faster than yearly compounding, even at the same annual rate, because interest gets added (and starts earning its own interest) more often.</p>
+    </div>
   </div>
 
     <div class="calc-panel" id="panel-sg">
@@ -193,6 +230,11 @@
       <h3>Results</h3>
       <div class="calc-result-list" id="sg-results"></div>
       <div id="sg-status"></div>
+    </div>
+    <div class="card" style="grid-column:1/-1;">
+      <h3>About Setting a Savings Goal</h3>
+      <p style="font-size:0.9rem;">A vague goal like "save more" is hard to act on. A specific target amount and date turns it into a number you can actually plan around — a fixed monthly contribution you either hit or you don't.</p>
+      <p style="font-size:0.9rem;"><strong>Good to know:</strong> If the required monthly amount feels too high, it's usually more realistic to extend the timeline than to abandon the goal. A smaller, consistent contribution beats an ambitious one you can't sustain.</p>
     </div>
   </div>
   </main>

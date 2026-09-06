@@ -43,7 +43,7 @@ async function updateAccount(userId, { username, email }) {
   return updated;
 }
 
-module.exports = { updateAccount, validateUsername, changePassword };
+module.exports = { updateAccount, validateUsername, changePassword, deleteAccount };
 
 async function changePassword(userId, { currentPassword, newPassword, confirmNewPassword }) {
   if (!isNonEmptyString(currentPassword) || !isNonEmptyString(newPassword) || !isNonEmptyString(confirmNewPassword)) {
@@ -66,4 +66,22 @@ async function changePassword(userId, { currentPassword, newPassword, confirmNew
 
   const newHash = await bcrypt.hash(newPassword, 10);
   await userModel.updatePasswordHash(userId, newHash);
+}
+
+async function deleteAccount(userId, password) {
+  if (!isNonEmptyString(password)) {
+    throw new AppError('Please enter your password to confirm account deletion.', 400, 'MISSING_FIELD');
+  }
+
+  const userWithHash = await userModel.findUserByIdWithHash(userId);
+  if (!userWithHash) {
+    throw new AppError('We could not find your account. Please log in again.', 404, 'USER_NOT_FOUND');
+  }
+
+  const matches = await bcrypt.compare(password, userWithHash.password_hash);
+  if (!matches) {
+    throw new AppError('Incorrect password. Your account has not been deleted.', 400, 'INVALID_PASSWORD');
+  }
+
+  await userModel.deleteUser(userId);
 }

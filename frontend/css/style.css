@@ -7,9 +7,9 @@
   --color-bg: #F7F8F4;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F0F3EF;
-  --color-primary: #1B4332;
-  --color-primary-dark: #123024;
-  --color-primary-light: #E5EEE8;
+  --color-primary: #318059;
+  --color-primary-dark: #1D5A3C;
+  --color-primary-light: #E5F1EA;
   --color-secondary: #2E6B72;
   --color-secondary-light: #E3EEEF;
   --color-accent: #C68A3B;
@@ -34,12 +34,12 @@
   --shadow-md: 0 6px 20px rgba(20, 40, 30, 0.08);
   --shadow-lg: 0 14px 40px rgba(20, 40, 30, 0.12);
   --max-width: 1200px;
-  --header-height: 72px;
+  --header-height: 78px;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -48,6 +48,7 @@ body {
   background: var(--color-bg);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -106,6 +107,8 @@ body.wn-auth-pending { visibility: hidden; }
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
   text-decoration: none;
   line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .btn:hover { text-decoration: none; }
 .btn:active { transform: translateY(1px); }
@@ -137,7 +140,7 @@ body.wn-auth-pending { visibility: hidden; }
 }
 .btn-danger:hover { background: #963a34; }
 
-.btn-sm { padding: 8px 14px; font-size: 0.85rem; }
+.btn-sm { padding: 10px 20px; font-size: 0.9rem; }
 .btn-block { width: 100%; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
@@ -164,6 +167,7 @@ body.wn-auth-pending { visibility: hidden; }
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--color-primary-dark);
+  flex-shrink: 0;
 }
 .brand-mark {
   width: 34px; height: 34px;
@@ -194,7 +198,7 @@ body.wn-auth-pending { visibility: hidden; }
   letter-spacing: 0.01em;
 }
 
-.header-actions { display: flex; align-items: center; gap: 12px; }
+.header-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 
 .nav-toggle {
   display: none;
@@ -216,20 +220,24 @@ body.wn-auth-pending { visibility: hidden; }
 }
 
 .hero {
-  padding: 76px 0 64px;
-  text-align: center;
+  padding: 64px 0;
 }
 .hero .container {
-  max-width: 680px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
 }
 .hero h1 { margin-bottom: 20px; }
 .hero-sub {
   font-size: 1.1rem;
-  max-width: 46ch;
-  margin: 0 auto 30px;
+  max-width: 48ch;
+  margin: 0 0 30px;
 }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-visual-card { min-width: 0; box-shadow: var(--shadow-lg); }
 
 .section { padding: 72px 0; }
 .section-alt { background: var(--color-surface); }
@@ -320,6 +328,7 @@ body.wn-auth-pending { visibility: hidden; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 24px;
+  overflow-x: auto;
 }
 .card-title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 .card-title-row h3 { margin: 0; }
@@ -380,6 +389,7 @@ textarea { resize: vertical; min-height: 90px; }
 .auth-card h1 { font-size: 1.7rem; margin-bottom: 6px; }
 .auth-sub { margin-bottom: 26px; }
 .auth-switch { text-align: center; margin-top: 20px; font-size: 0.92rem; }
+
 .auth-error {
   background: var(--color-danger-light); color: var(--color-danger);
   border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 18px;
@@ -443,7 +453,7 @@ textarea { resize: vertical; min-height: 90px; }
 @keyframes skeleton-loading { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
 
 .table-wrap { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table { min-width: 100%; width: auto; border-collapse: collapse; font-size: 0.9rem; }
 th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
 th { color: var(--color-text-soft); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
 tbody tr:hover { background: var(--color-surface-alt); }
