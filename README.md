@@ -47,7 +47,6 @@ Built with Node.js, Express, MySQL, and plain HTML/CSS/JS (no frontend framework
 
 5. Open `http://localhost:5000`
 
-Demo account: `demo@wealthnest.in` / `Demo@1234`
 
 ## Project structure
 
