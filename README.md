@@ -2,7 +2,7 @@
 
 A personal finance and budgeting web app built for Indian users — track expenses, plan a monthly budget, set savings goals, and learn basic financial concepts like SIP, FD, and PPF.
 
-Built with Node.js, Express, MySQL, and plain HTML/CSS/JS (no frontend framework).
+Built with Node.js, Express, MySQL, and plain HTML/CSS/JS.
 
 ## Features
 
