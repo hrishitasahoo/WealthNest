@@ -9,6 +9,9 @@
     "seed": "node database/runSeed.js"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
@@ -16,8 +19,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.10.0",
-    "nodemailer": "^9.1.1"
+    "mysql2": "^3.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
