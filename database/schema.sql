@@ -1,9 +1,4 @@
-CREATE DATABASE IF NOT EXISTS wealthnest
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE wealthnest;
-
+USE defaultdb;
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   full_name VARCHAR(120) NOT NULL,
